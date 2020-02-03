@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">SampleFragment</string>
     <string name="hello">Hello Fragment!!</string>
+    <string-array name="item_list">
+        <item>List Item1</item>
+        <item>List Item2</item>
+        <item>List Item3</item>
+        <item>List Item4</item>
+    </string-array>
 </resources>

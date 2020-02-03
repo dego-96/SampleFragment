@@ -5,10 +5,25 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <fragment
-        android:id="@+id/sample_fragment"
-        android:name="jp.co.jicdom.samplefragment.SampleFragment"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <fragment
+            android:id="@+id/list_fragment"
+            android:name="jp.co.jicdom.samplefragment.SampleListFragment"
+            android:layout_width="200dp"
+            android:layout_height="match_parent" />
+
+        <fragment
+            android:id="@+id/viewer_fragment"
+            android:name="jp.co.jicdom.samplefragment.SampleViewerFragment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
