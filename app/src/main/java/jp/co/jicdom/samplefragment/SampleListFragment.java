@@ -15,6 +15,8 @@ public class SampleListFragment extends Fragment {
 
     private static final String TAG = "SampleListFragment";
 
+    private OnHeadlineSelectedListener mCallback;
+
     @Override
     public void onCreate(Bundle aSavedInstanceState) {
         Log.d(TAG, "onCreate");
@@ -35,8 +37,17 @@ public class SampleListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> aParent, View aView, int aPosition, long aId) {
                 Log.d(TAG, "onItemClick" + aPosition);
+                mCallback.onArticleSelected(aPosition);
             }
         });
         return rootView;
+    }
+
+    void setOnHeadlineSelectedListener(OnHeadlineSelectedListener aCallback) {
+        this.mCallback = aCallback;
+    }
+
+    public interface OnHeadlineSelectedListener {
+        void onArticleSelected(int position);
     }
 }
