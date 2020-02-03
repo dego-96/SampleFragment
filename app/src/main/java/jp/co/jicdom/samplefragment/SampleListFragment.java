@@ -5,6 +5,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -25,6 +27,16 @@ public class SampleListFragment extends Fragment {
                              ViewGroup aContainer,
                              Bundle aSavedInstanceState) {
         Log.d(TAG, "onCreateView");
-        return aInflater.inflate(R.layout.list_fragment, aContainer, false);
+
+        View rootView = aInflater.inflate(R.layout.list_fragment, aContainer, false);
+
+        ListView listView = rootView.findViewById(R.id.list_view);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> aParent, View aView, int aPosition, long aId) {
+                Log.d(TAG, "onItemClick" + aPosition);
+            }
+        });
+        return rootView;
     }
 }
